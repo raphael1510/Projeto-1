@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        #search {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        #search-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        #books {
+            list-style-type: none;
+            padding: 0;
+        }
+        .book {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .book h2 {
+            margin-top: 0;
+        }
+        .book p {
+            margin-bottom: 5px;
+        }
+        #rental {
+            margin-top: 30px;
+            text-align: center;
+        }
+        #highlight {
+            margin-top: 30px;
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Biblioteca Online</h1>
+        <input type="text" id="search" placeholder="Pesquisar livros...">
+        <button id="search-btn">Pesquisar</button>
+        
+        <h2>Livros Disponíveis</h2>
+        <ul id="books">
+            <li class="book">
+                <h2>GravityFalls</h2>
+                <p>Autor: Autor do Livro 1</p>
+                <p>Ano: 2022</p>
+                <p>ISBN: 978-3-16-148410-0</p>
+            </li>
+            <li class="book">
+                <h2>12 é Demais</h2>
+                <p>Autor: Autor do Livro 2</p>
+                <p>Ano: 2020</p>
+                <p>ISBN: 978-3-16-148410-1</p>
+            </li>
+            <li class="book">
+                <h2>Depois da Meia Noite</h2>
+                <p>Autor: Autor do Livro 3</p>
+                <p>Ano: 2018</p>
+                <p>ISBN: 978-3-16-148410-2</p>
+            </li>
+            <li class="book">
+                <h2>Mobdick</h2>
+                <p>Autor: Autor do Livro 4</p>
+                <p>Ano: 2017</p>
+                <p>ISBN: 978-3-16-148410-3</p>
+            </li>
+            <li class="book">
+                <h2>HarryPotter </h2>
+                <p>Autor: alguem</p>
+                <p>Ano: 2007</p>
+                <p>ISBN: 978-3-16-148410-4</p>
+            </li>
+        </ul>
+        
+        <div id="rental">
+            <h2>Aluguel de Livros</h2>
+            <p>Em breve você poderá alugar os livros desejados!</p>
+        </div>
+        
+        <div id="highlight">
+            <h2>Destaque do Mês</h2>
+            <p>Confira nosso livro do mês: "HarryPotter e as Relíquias da morte".</p>
+            <p>Este livro é um clássico para aquelas pessoas q gostam de magia suspence e uma grande aventura</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('search-btn').addEventListener('click', function() {
+            var searchValue = document.getElementById('search').value.toLowerCase();
+            var books = document.querySelectorAll('.book');
+            
+            books.forEach(function(book) {
+                var title = book.querySelector('h2').innerText.toLowerCase();
+                
+                if (title.includes(searchValue)) {
+                    book.style.display = 'block';
+                } else {
+                    book.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
